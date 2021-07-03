@@ -1,6 +1,7 @@
 # bmi-calculator
 
 run
+
 ```npm run start```
 
 test
