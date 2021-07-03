@@ -1,4 +1,5 @@
-const data = require('./data.json');
+const fs = require('fs')
+let data = JSON.parse(fs.readFileSync('./data.json', 'utf-8'))
 
 const range = [
   {range: '0-18.4', category: 'Underweight', helth_risk: 'Malnutrition risk'},
@@ -16,18 +17,25 @@ data.forEach(({ Gender, HeightCm, WeightKg}) => {
     cm_to_m = HeightCm / 100,
     BMI = (WeightKg / (cm_to_m * cm_to_m)).toFixed(2);
 
-  if(BMI < 18.4){
-    index = 0;
-  } else if(BMI < 24.9) {
-    index = 1;
-  } else if(BMI < 29.9) {
-    index = 2;
-  } else if(BMI < 34.9) {
-    index = 3;
-  } else if(BMI < 39.9) {
-    index = 4;
-  } else {
-    index = 5;
+  switch (true) {
+    case (BMI < 18.4):
+      index = 0;
+      break;
+    case (BMI < 24.9):
+      index = 1;
+      break;
+    case (BMI < 29.9):
+      index = 2;
+      break;
+    case (BMI < 34.9):
+      index = 3;
+      break;
+    case (BMI < 39.9):
+      index = 4;
+      break;
+    default:
+      index = 5;
+      break;
   }
 
   data = range[index];
