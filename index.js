@@ -50,7 +50,7 @@ async function calculateBMI(data){
     table.push(data);
 
   })
-  // console.table(table)
+   console.table(table)
 }
 
 const getByCategory = (payload) => {
