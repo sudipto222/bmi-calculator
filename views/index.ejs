@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+
+  <style>
+    table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table td,
+    table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+      background-color: #ddd;
+    }
+
+    table th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <% if(datas.length) { %>
+  <h1>Total record <%= datas.length %></h1>
+  <table border="1">
+    <tr>
+      <th>SL</th>
+      <th>Range</th>
+      <th>Category</th>
+      <th>Healt Condition</th>
+      <th>BMI</th>
+    </tr>
+    <% for(let i=0; i < datas.length; i++) {%>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= datas[i].range %></td>
+        <td><%= datas[i].category %></td>
+        <td><%= datas[i].health_risk %></td>
+        <td><%= datas[i].bmi %></td>
+      </tr>
+    <% } %>
+  </table>
+  <% } else { %>
+    <h1>Total record <%= datas.length %></h1>
+  <% } %>
+</body>
+
+</html>

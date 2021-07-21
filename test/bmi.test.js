@@ -1,40 +1,32 @@
 const assert = require('assert');
 
-const getByCategory = require('../index.js');
+const Data = require("./../controller");
 
 
 describe('Get Overweight person in table', () => {
-  it('should return total length 4', () => {
-    setTimeout(() => {
-      const result = getByCategory('Overweight');
-      assert.equal(result, 4);
-    }, 1000)
+  it('should return total length 4', async function () {
+    const records = await new Data().getDatasByCategory('O');
+    assert.equal(records.length, 4);
   });
 });
 
 describe('Get Moderately obese person in table', () => {
-  it('should return total length 12', () => {
-    setTimeout(() => {
-      const result = getByCategory('Moderately obese');
-      assert.equal(result, 12);
-    }, 1000)
+  it('should return total length 12', async function () {
+    const records = await new Data().getDatasByCategory('MO');
+    assert.equal(records.length, 12);
   });
 });
 
 describe('Get Normal weight person in table', () => {
-  it('should return total length 10', () => {
-    setTimeout(() => {
-      const result = getByCategory('Normal weight');
-      assert.equal(result, 10);
-    }, 1000)
+  it('should return total length 10', async function () {
+    const records = await new Data().getDatasByCategory('NW');
+    assert.equal(records.length, 10);
   });
 });
 
 describe('Get Severely obese person in table', () => {
-  it('should return total length 0', () => {
-    setTimeout(() => {
-      const result = getByCategory('Severely obese');
-      assert.equal(result, 0);
-    }, 1000);
+  it('should return total length 0', async function () {
+    const records = await new Data().getDatasByCategory('SO');
+    assert.equal(records.length, 0);
   });
 });

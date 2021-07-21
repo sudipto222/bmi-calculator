@@ -2,7 +2,7 @@
 
 run
 
-```npm run start```
+```npm run dev```
 
 test
 
